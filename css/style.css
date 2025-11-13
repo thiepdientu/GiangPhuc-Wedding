@@ -667,7 +667,7 @@ main{
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: var(--secondary-font);
+    font-family: var(--primary-font);
     font-size: var(--title-fs);
     text-align: center;
 }
@@ -708,8 +708,7 @@ main{
     margin-top: 8px;
 }
 .banner-location .banner_location_name {
-    font-size: var(--title-fs);
-    font-family: var(--secondary-font);
+    font-family: var(--primary-font);
 }
 /* ABOUT */
 .line {

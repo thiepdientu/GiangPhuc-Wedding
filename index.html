@@ -453,26 +453,26 @@
             <img src="images/top.jpg" alt="" class="banner_top kenburns-top" data-aos="fade" data-aos-duration="3000" style="object-position:center center">
             <div class="container">
                 <div class="banner-container">
-                    <h2 class="banner-title" data-aos="fade-down" data-aos-duration="3000">
+                    <h2 class="banner-title script-font" data-aos="fade-down" data-aos-duration="3000">
                         <p>Save The Date</p>
                     </h2>
                     <p class="banner-slogan script-font" data-aos="fade-up" data-aos-duration="3000"></p>
-                    <div class="banner-name">
+                    <div class="banner-name " style="font-size:15px;">
                         Trường Phúc<br>
                         <span>&</span><br>
                         Thùy Giang
                     </div>
                     <div class="banner-date">
                         <span class="day_name" data-aos="fade-right" data-aos-duration="3000">Tháng
-                            11</span>
-                        <span class="banner_date" data-aos="fade" data-aos-duration="3000">29</span>
+                            12</span>
+                        <span class="banner_date" data-aos="fade" data-aos-duration="3000">19</span>
                         <span class="banner_month" data-aos="fade-left" data-aos-duration="3000">2025</span>
                     </div>
                     <div class="banner-location" data-aos="fade-up" data-aos-duration="3000">
-                        <p class="script-font">Lễ Thành Hôn</p>
+                        <p class="script-font">Lễ Báo Hỷ</p>
 
-                        <p class="banner_location_name">Trung tâm tiệc cưới Golden Palace</p>
-                        <p class="banner_location_adress">Số 281 Đội Cấn, phường Ngọc Hà, thành phố Hà Nội</p>
+                        <p class="banner_location_name" style="font-size:15px;">Trung tâm tiệc cưới Golden Palace</p>
+                        <p class="banner_location_adress banner_location_name" style="font-size:13px;">Số 281 Đội Cấn, phường Ngọc Hà </br> thành phố Hà Nội</p>
                         <div class="social-link">
                                                             <a href="tel:0911667761" class="phone_number">
                                     <i class="ri-phone-fill"></i>
@@ -840,7 +840,76 @@
 
     <!-- LỜI CHÚC -->
     <!-- TIN NHẮN -->
-    
+    <section id="message" class="section-message uk-background-cover uk-section" style="background-image:url(images/DutWMYrcZyQtKzdFCuu29hxIdRxZxE2tW8cWB99i.jpg); display:block;margin-top:100px;">
+        <div class="uk-position-cover uk-overlay uk-overlay-primary" style="opacity:.5"> </div>
+        <div class="message-container container uk-position-relative uk-position-z-index">
+           
+            <div class="list_message">
+                <!-- <div class="message-item" data-aos="fade-up" data-aos-duration="2000">
+            <i class='bx bxs-quote-alt-left'></i>
+            <h3 class="user_message">Phương Nguyễn</h3>
+            <p class="message_body">Chúc bạn thân của tao lấy một chồng, đẻ hai con đủ nếp đủ tẻ, sống ở nhà ba tầng,
+              mua xe 4 bánh nhé. Phải thật hạnh phúc mày nhé! Hi hi.</p>
+          </div> -->
+            </div>
+
+            <div class="uk-padding-small uk-border-rounded blur-bg" style="border:1px solid white">
+
+                <h3 class="form-title" style="color:white">Gửi lời chúc</h3>
+                <form action="" id="customForm">
+                    <div class="input-group uk-margin-top" style="color:white">
+                        <label for="">
+                            Tên của bạn </label>
+                        <input style="border:1px solid white" id="ten" type="text" class="input blur-bg" value="" required="">
+                    </div>
+                    <div class="input-group uk-margin-top">
+                        <label for="" style="color:white">
+                            Lời chúc </label>
+                            <input style="border:1px solid white" type="text" id="messages" class="input blur-bg" required="">
+                            <label for="" style="color:white">
+                                Xác nhận tham dự </label>
+                                <input style="border:1px solid white" type="text" id="accept" class="input blur-bg" required="">
+                                <label for="" style="color:white">
+                                Số người tham dự </label>
+                                <input style="border:1px solid white" type="text" id="accept2" class="input blur-bg" required="">
+                    </div>
+                    <button type="submit" class="btn btn-primary send_message uk-margin-top" style="color:white">Gửi
+                        lời chúc</button>
+                </form>
+                <p style="margin-top:10px;" id="status"></p>
+                <a href="https://docs.google.com/spreadsheets/d/1sKYaan7zwfh-0M0ETn8hmOLVmljjskC1Who3azjfdj4/edit?usp=sharing" style="color:white">Xem lời chúc</a>
+            </div>
+
+            <script>
+                document.getElementById("customForm").addEventListener("submit", function(event) {
+                    event.preventDefault();
+                    let name = document.getElementById("ten").value;
+                    let message = document.getElementById("messages").value;
+                    let accept = document.getElementById("accept").value;     
+                      let accept2 = document.getElementById("accept2").value;     
+                    // Thay thế bằng URL Google Form của bạn
+                    let googleFormURL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSezphyUxAT5nuID50GYnMP251i0e9NCy6bT5riE5qogo2tTzw/formResponse";
+                    // Các entry ID (tìm trong Google Form)
+                    let formData = new FormData();
+                    formData.append("entry.1294353069", name); 
+                    formData.append("entry.536378177", message); 
+                    formData.append("entry.1479499549", accept);
+                    formData.append("entry.211247307", accept2);
+        
+                    fetch(googleFormURL, {
+                        method: "POST",
+                        body: formData,
+                        mode: "no-cors"
+                    }).then(() => {
+                        document.getElementById("status").innerText = "Gửi thành công!";
+                        document.getElementById("customForm").reset();
+                    }).catch(error => {
+                        document.getElementById("status").innerText = "Có lỗi xảy ra!";
+                    });
+                });
+            </script>
+        </div>
+    </section>
     <!-- END TIN NHẮN -->
     <script>
         fetch('/wp-json/wp/v2/comments?post=999&per_page=100', {
